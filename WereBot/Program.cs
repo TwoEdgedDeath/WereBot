@@ -21,7 +21,7 @@ namespace WereBot
         {
             discord = new DiscordClient(new DiscordConfiguration
             {
-                Token = "Njk2NDE3MTQ0MzMzOTI2NDMz.XoolpA.Eij8Jr_4yMwu6rO42DXxfExChrc",
+                Token = "Njk2NDE3MTQ0MzMzOTI2NDMz.XpkdYw.VRqZuSkHZ6UdPUpeFeru0_1lAJY",
                 TokenType = TokenType.Bot,
 
                 UseInternalLogHandler = true,
