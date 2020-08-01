@@ -132,6 +132,26 @@ namespace WereBot
             }
         }
 
+        [Command("vote"), Description("Start a daily vote for the town trial.")]
+        public async Task TestVote(CommandContext ctx, [Description("How long should the poll last.")] TimeSpan duration, [Description("What options should people have.")] params DiscordEmoji[] options)
+        {
+            // first retrieve the interactivity module from the client
+            var interactivity = ctx.Client.GetInteractivityModule();
+            var poll_options = options.ToString(); // = options.Select(xe => xe.ToString());
+
+            // then let's present the poll
+            var embed = new DiscordEmbedBuilder
+            {
+                Title = "Poll time!",
+                Description = string.Join(" ", poll_options)
+            };
+            var msg = await ctx.RespondAsync(embed: embed);
+
+            // add the options as reactions
+            for (var i = 0; i < options.Length; i++)
+                await msg.CreateReactionAsync(options[i]);
+        }
+
         ///[Command("roleid")]
         ///public async Task GetRoleID(CommandContext ctx, DiscordRole new_role)
         ///{
